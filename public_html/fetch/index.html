@@ -19,7 +19,7 @@
             const inpValue = document.getElementById("inp").value;
 
             fetch(inpValue)
-                .then(res => return res.text())
+                .then(res => res.text())
                 .then(data => document.getElementById("inp").value = data)
                 .catch(error => console.log(error));
         }
