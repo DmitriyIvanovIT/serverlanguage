@@ -16,11 +16,11 @@
         btn.addEventListener('click', btnClick);
 
         function btnClick() {
-            const inpValue = document.getElementById("inp").value;
+            const inp = document.getElementById("inp");
 
-            fetch(inpValue)
+            fetch(inp.value)
                 .then(res => res.text())
-                .then(data => document.getElementById("inp").value = data)
+                .then(data => inp.value = data)
                 .catch(error => console.log(error));
         }
     </script>
