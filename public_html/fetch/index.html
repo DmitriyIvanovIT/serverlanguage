@@ -12,23 +12,12 @@
     <button id="bt">Click me</button>
 
     <script>
-        const btn = document.getElementById("bt");
-        btn.addEventListener('click', btnClick);
-
-        function btnClick() {
-            const inpValue = document.getElementById("inp").value;
-
-            fetch(inpValue)
-                .then((response) => {
-                    return response.text();
-                })
-                .then((data) => {
-                    document.getElementById("inp").value = data;
-                })
-                .catch(reject => {
-                    console.log(reject);
-                });
-        }
+        bt.addEventListener('click', async function doButtonClick(){
+            let url = document.getElementById('inp').value;
+            let response = await fetch(url);
+            let text = await response.text();
+            document.getElementById('inp').value = text;
+        });
     </script>
 </body>
 
