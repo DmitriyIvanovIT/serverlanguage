@@ -12,19 +12,18 @@
     <button id="bt">Click me</button>
 
     <script>
-        const input = document.querySelector('button')
-            .addEventListener('click', fetch_req);
-        
-        function fetch_req(){
-            const url=document.querySelector('input').value;
-            console.log('Executed!'); 
-            fetch(url)
+        const btn = document.getElementById("bt");
+        btn.addEventListener('click', btnClick);
+
+        function btnClick() {
+            const inpValue = document.getElementById("inp").value;
+
+            fetch(inpValue)
                 .then((response) => {
                     return response.text();
                 })
                 .then((data) => {
-                    console.log(data);
-                    document.querySelector('input').value = data;
+                    document.getElementById("inp").value = data;
                 })
                 .catch(reject => {
                     console.log(reject);
